@@ -27,7 +27,7 @@ body {
 
 /* 背景图（如需使用，请替换 URL） */
 .ext-background-image {
-  background-image: url('your-background-image-url.jpg');
+  background-image: url('https://api.wenturc.com/');
   background-size: cover;
   background-position: center;
 }
