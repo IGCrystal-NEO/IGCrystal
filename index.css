@@ -27,7 +27,7 @@ body {
 
 /* 哔哩哔哩风格的背景和覆盖 */
 .ext-background-image {
-    background-image: url('your-background-image-url.jpg'); /* 替换为您的背景图片 URL */
+    background-image: url('https://api.wenturc.com/'); /* 替换为您的背景图片 URL */
     background-size: cover;
     background-position: center;
 }
@@ -39,9 +39,10 @@ body {
 
 /* 登录框样式：模糊背景和圆角设计 */
 .ext-sign-in-box {
-    background: rgba(255, 255, 255, 0.15);
+    background: #fff;
     backdrop-filter: blur(15px);
     padding: 40px;
+    border: 2px solid #ff77ff;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -53,9 +54,8 @@ body {
 .ext-title {
     font-size: 28px;
     font-weight: bold;
-    color: #ffcc00;
+    color: #ccc;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* 输入框风格 */
