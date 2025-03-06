@@ -1,158 +1,116 @@
-:root {
-  /**
-   * 主题色
-   * -------------------------------------------------------------------------- */
-  --vp-c-brand-1: rgba(0, 163, 255, 1);               /* 链接颜色、强调色 */
-  --vp-c-brand-2: rgba(0, 180, 255, 1);               /* 链接、按钮 hover 颜色 */
-  --vp-c-brand-3: rgba(0, 175, 255, 1);               /* 背景色、边框色 */
-  --vp-c-brand-soft: rgba(51, 181, 255, 0.314);       /* 辅助色 */
-
-  /**
-   * 文本颜色
-   * -------------------------------------------------------------------------- */
-  --vp-c-text-1: rgba(60, 60, 67);                    /* 主要文本 */
-  --vp-c-text-2: rgba(60, 60, 67, 0.78);              /* 次要文本 */
-  --vp-c-text-3: rgba(60, 60, 67, 0.56);              /* 辅助文本 */
-
-  /**
-   * 背景色
-   * -------------------------------------------------------------------------- */
-  --vp-c-bg: #fff;                                    /* 主体背景 */
-  --vp-nav-bg-color: #fff;                            /* 导航栏背景 */
-  --vp-nav-screen-bg-color: #fff;                     /* 移动端导航栏 */
-  --vp-local-nav-bg-color: #fff;                      /* 页面内导航栏 */
-  --vp-sidebar-bg-color: #f6f6f7;                     /* 侧边栏背景 */
-  --vp-code-block-bg: #f6f8fa;                        /* 代码块背景 */
-}
-
-/* dark theme */
-[data-theme="dark"] {
-  /**
-   * 主题色
-   * -------------------------------------------------------------------------- */
-  --vp-c-brand-1: rgba(108, 197, 255, 1);             /* 链接颜色、强调色 */
-  --vp-c-brand-2: rgba(0, 155, 255, 1);               /* 链接、按钮 hover 颜色 */
-  --vp-c-brand-3: rgba(0, 178, 255, 1);               /* 背景色、边框色 */
-  --vp-c-brand-soft: rgba(75, 199, 255, 0.314);       /* 辅助色 */
-
-  /**
-   * 文本颜色
-   * -------------------------------------------------------------------------- */
-  --vp-c-text-1: rgba(255, 255, 245, 0.86);           /* 主要文本 */
-  --vp-c-text-2: rgba(235, 235, 245, 0.6);            /* 次要文本 */
-  --vp-c-text-3: rgba(235, 235, 245, 0.38);           /* 辅助文本 */
-
-  /**
-   * 背景色
-   * -------------------------------------------------------------------------- */
-  --vp-c-bg: #1b1b1f;                                 /* 主体背景 */
-  --vp-nav-bg-color: #1b1b1f;                         /* 导航栏背景 */
-  --vp-nav-screen-bg-color: #1b1b1f;                  /* 移动端导航栏 */
-  --vp-local-nav-bg-color: #1b1b1f;                   /* 页面内导航栏 */
-  --vp-sidebar-bg-color: #161618;                     /* 侧边栏背景 */
-  --vp-code-block-bg: #202127;                        /* 代码块背景 */
-}
-
+/* 哔哩哔哩风格的动态渐变背景 */
 body {
-    background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2), var(--vp-c-brand-3)); 
-    background-size: 400% 400%;
-    animation: gradientAnimation 10s ease infinite;
-    font-family: '微软雅黑', sans-serif;
-    color: var(--vp-c-text-1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  background: linear-gradient(135deg, rgba(0, 163, 255, 1), rgba(0, 180, 255, 1), rgba(0, 175, 255, 1));
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  font-family: '微软雅黑', sans-serif;
+  color: rgba(60, 60, 67, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-/* 动态渐变背景动画 */
+/* 渐变背景动画 */
 @keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-/* 登录框样式：模糊背景和圆角设计 */
+/* 背景图（如需使用，请替换 URL） */
+.ext-background-image {
+  background-image: url('your-background-image-url.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* 背景覆盖层 */
+.ext-background-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* 登录框：玻璃拟态效果与圆角设计 */
 .ext-sign-in-box {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 350px;
-    width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 350px;
+  width: 100%;
 }
 
-/* 标题的字体样式 */
+/* 标题样式 */
 .ext-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--vp-c-brand-1);
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 28px;
+  font-weight: bold;
+  color: rgba(0, 163, 255, 1);
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* 输入框风格 */
+/* 输入框样式 */
 .ext-input.ext-text-box {
-    width: 100%;
-    padding: 15px;
-    margin: 15px 0;
-    border: 2px solid var(--vp-c-brand-2);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    color: var(--vp-c-text-1);
-    font-size: 16px;
-    outline: none;
-    transition: all 0.3s ease;
+  width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  border: 2px solid rgba(51, 181, 255, 0.314);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(60, 60, 67, 1);
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
-/* 输入框聚焦时的效果 */
+/* 输入框聚焦时 */
 .ext-input.ext-text-box:focus {
-    border-color: var(--vp-c-brand-3);
-    background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(0, 163, 255, 1);
+  background: rgba(255, 255, 255, 0.4);
 }
 
-/* 主按钮 */
+/* 主按钮样式 */
 .ext-button.ext-primary {
-    background-color: var(--vp-c-brand-1);
-    color: #333;
-    font-weight: bold;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
+  background-color: rgba(0, 163, 255, 1);
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
-/* 按钮悬停效果 */
+/* 主按钮悬停状态 */
 .ext-button.ext-primary:hover {
-    background-color: var(--vp-c-brand-2);
+  background-color: rgba(0, 180, 255, 1);
 }
 
 /* 页脚样式 */
 .ext-footer {
-    color: var(--vp-c-brand-1);
-    font-size: 12px;
-    text-align: center;
-    margin-top: 20px;
+  color: rgba(0, 163, 255, 1);
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 /* 页脚链接样式 */
 .ext-footer-links {
-    color: var(--vp-c-brand-1);
-    text-decoration: none;
-    transition: all 0.3s ease;
+  color: rgba(0, 163, 255, 1);
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .ext-footer-links:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
