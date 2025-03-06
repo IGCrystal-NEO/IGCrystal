@@ -45,7 +45,7 @@ body
     border: 2px solid rgba(51, 181, 255, 0.314);
     border-radius: 15px;
     text-align: left;  /* 从居中改为左对齐 */
-    max-width: 500px;
+    max-width: 450px;
     width: 100%;
 }
 
