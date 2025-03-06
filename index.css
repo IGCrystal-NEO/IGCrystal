@@ -7,7 +7,6 @@ body
     font-family: '微软雅黑', sans-serif;
     color: rgba(60, 60, 67, 1);
     margin: 0;
-    padding: 20px; /* 增加内边距，让内容不紧贴左侧 */
 }
 
 /* 渐变背景动画 */
