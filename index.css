@@ -1,0 +1,116 @@
+/* 哔哩哔哩风格的渐变背景 */
+body {
+    background: linear-gradient(135deg, #00aaff, #ff77ff, #ff8c00);
+    background-size: 400% 400%; 
+    animation: gradientAnimation 10s ease infinite;
+    font-family: '微软雅黑', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* 动态渐变背景动画 */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 哔哩哔哩风格的背景和覆盖 */
+.ext-background-image {
+    background-image: url('your-background-image-url.jpg'); /* 替换为您的背景图片 URL */
+    background-size: cover;
+    background-position: center;
+}
+
+/* 哔哩哔哩风格的背景透明度 */
+.ext-background-overlay {
+    background-color: rgba(0, 0, 0, 0.4); /* 添加黑色背景透明度 */
+}
+
+/* 登录框样式：模糊背景和圆角设计 */
+.ext-sign-in-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+}
+
+/* 标题的字体样式 */
+.ext-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 输入框风格 */
+.ext-input.ext-text-box {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 2px solid #ff77ff;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* 输入框聚焦时的效果 */
+.ext-input.ext-text-box:focus {
+    border-color: #ffcc00;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* 哔哩哔哩风格的主按钮 */
+.ext-button.ext-primary {
+    background-color: #ffcc00;
+    color: #333;
+    font-weight: bold;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+/* 按钮悬停效果 */
+.ext-button.ext-primary:hover {
+    background-color: #ffdb4d;
+}
+
+/* 页脚的颜色与链接 */
+.ext-footer {
+    color: #ffcc00;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 页脚链接样式 */
+.ext-footer-links {
+    color: #ffcc00;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.ext-footer-links:hover {
+    text-decoration: underline;
+}
