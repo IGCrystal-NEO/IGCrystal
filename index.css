@@ -6,11 +6,8 @@ body
     animation: gradientAnimation 10s ease infinite;
     font-family: '微软雅黑', sans-serif;
     color: rgba(60, 60, 67, 1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    padding: 20px; /* 增加内边距，让内容不紧贴左侧 */
 }
 
 /* 渐变背景动画 */
@@ -24,7 +21,7 @@ body
     100% {
       background-position: 0% 50%;
     }
-  }
+}
 
 .ext-background-image
 {
@@ -42,13 +39,13 @@ body
 
 .ext-sign-in-box
 {
-    /* 登录框容器的样式 */
+    /* 登录框容器的样式，调整为左对齐 */
     background: #fff;
     backdrop-filter: blur(15px);
     padding: 40px;
     border: 2px solid rgba(51, 181, 255, 0.314);
     border-radius: 15px;
-    text-align: center;
+    text-align: left;  /* 从居中改为左对齐 */
     max-width: 500px;
     width: 100%;
 }
@@ -58,9 +55,10 @@ body
     /* 标题文本的样式 */
     font-size: 20px;
     font-weight: bold;
-    color: rgba(60, 60, 67);
+    color: rgba(60, 60, 67, 1);
     margin-bottom: 20px;
-    margin-right: auto;
+    /* 如有需要可取消 margin-right:auto 保证左对齐 */
+    margin-right: 0;
 }
 
 .ext-input.ext-text-box
@@ -101,7 +99,6 @@ body
 .ext-button.ext-secondary
 {
     /* 次要按钮的样式 */
-    /* 蓝色 */
     background-color: rgb(151, 217, 255);
     color: #006e96;
     font-weight: bold;
@@ -116,7 +113,6 @@ body
 .ext-button.ext-secondary:hover
 {
     /* 鼠标悬停在次要按钮上时的样式 */
-    /* 与次要按钮的样式保持一致 */
     background-color: rgba(0, 140, 201, 0.781);
 }
 
