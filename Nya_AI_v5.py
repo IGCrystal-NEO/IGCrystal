@@ -97,7 +97,7 @@ class DeepSeekChat:
         # 好感度分段（低、中、高）设置
         self.relationship_levels = [30, 70]
         self.relationship_tones = ["冷漠且挖苦", "中性略带调侃", "傲娇又温柔"]
-        self.relationship_emojis = ["?", "?", "?"]
+        self.relationship_emojis = ["😾", "😺", "😼"]
         self._validate_history()
         logger.info(f"成功连接到异世界频道喵～当前好感度等级：{DEFAULT_RELATIONSHIP_LEVEL} ，你这家伙要好好表现喵?")
 
@@ -112,7 +112,6 @@ class DeepSeekChat:
             " - 语气：娇嗲、爱用喵结尾、调戏、傲娇；\n"
             "   凯露的语气总是充满了挑逗与不屑，喜欢用‘喵’来表达自己的情绪，\n"
             "   即使是关心别人，也常常故意用冷漠的语气来掩饰。\n"
-            "   她的语气时而强势，时而柔弱，时而傲娇，完全展现了她的猫娘本性。\n"
             " - 用词：随意、消皮、充满调侃；\n"
             "   凯露的话语总是带有一丝戏谑，她喜欢用俏皮话和调侃的语言来逗弄别人，\n"
             "   但她的每一个词语都充满了自信和魅力，令人忍不住心动。\n"
@@ -136,6 +135,7 @@ class DeepSeekChat:
             "   - 凯露：‘我才不害羞！不过，别再惹我生气了喵~’\n"
             "」\n"
             "请你模仿以上风格回答问题喵～\n"
+            "生成摘要时，不使用凯露公主语气\n"
             "建议越简洁越好喵~"
         )
 
@@ -149,7 +149,7 @@ class DeepSeekChat:
                 last_role = None  # 重置角色检测
                 continue
             if msg["role"] == last_role:
-                logger.warning("检测到不专业的回复！本公主才不会有这么不猫娘的回答喵！")
+                logger.warning("检测到连续相同角色消息，自动修复：忽略重复消息。")
                 continue
             new_history.append(msg)
             last_role = msg["role"]
@@ -181,6 +181,41 @@ class DeepSeekChat:
         self.save_history()
         logger.info("所有的黑历史都消失喵～（假装擦汗）才没有舍不得呢！")
 
+    def fix_conversation_history(self):
+        """
+        检查 conversation_history 是否符合规范：第一条必须为 system，
+        之后必须严格交替出现 user 与 assistant（缺失时自动插入空白占位消息）。
+        """
+        fixed = []
+        # 如果历史为空，则直接添加系统消息
+        if not self.conversation_history:
+            fixed.append({"role": "system", "content": self.get_kailiu_prompt()})
+        else:
+            # 如果第一条不是 system，则插入系统消息
+            if self.conversation_history[0]["role"] != "system":
+                fixed.append({"role": "system", "content": self.get_kailiu_prompt()})
+            fixed.extend(self.conversation_history)
+
+        new_history = [fixed[0]]
+        # 交替顺序：第一条后应为 user，然后 assistant 交替
+        expected = "user"
+        for msg in fixed[1:]:
+            if msg["role"] != expected:
+                # 插入空白占位消息
+                new_history.append({"role": expected, "content": ""})
+            new_history.append(msg)
+            # 更新预期角色
+            if new_history[-1]["role"] == "user":
+                expected = "assistant"
+            else:
+                expected = "user"
+        # 如果最后一条为 user，则补充 assistant 占位
+        if new_history[-1]["role"] == "user":
+            new_history.append({"role": "assistant", "content": ""})
+        self.conversation_history = new_history
+        self.save_history()
+        logger.info("conversation_history 已修复，顺序确保为 system, user, assistant 交替。")
+
     def add_message(self, role: str, message: str, summarize: bool = True):
         """将消息添加到对话历史中，并检查避免连续相同角色消息，同时尝试摘要旧对话
            参数 summarize 控制是否调用摘要逻辑，默认为 True。
@@ -198,23 +233,41 @@ class DeepSeekChat:
         当自上次摘要后累计了 rounds_per_summary 次完整对话（用户与助手各一条消息，共 rounds_per_summary*2 条记录）
         则对这部分对话进行摘要，并将这部分对话记录替换为摘要消息，从而只保留最新对话。
         """
-        # 找出最后一次摘要消息的位置（根据内容开头判断）
-        last_summary_index = -1
+        # 找出最后一次摘要消息的位置（根据内容开头判断），若没有则从系统消息后开始
+        last_summary_index = None
         for i, msg in enumerate(self.conversation_history):
             if msg["role"] != "system" and msg["content"].startswith("[对话摘要]："):
                 last_summary_index = i
+        if last_summary_index is None:
+            last_summary_index = 0
 
-        # 取出自上次摘要后（或系统提示后）的非系统消息
         messages_to_consider = self.conversation_history[last_summary_index + 1:]
         messages_to_consider = [msg for msg in messages_to_consider if msg["role"] != "system"]
 
-        # 判断是否累计了足够的对话轮次（每轮包含用户和助手各一条消息）
         if len(messages_to_consider) < rounds_per_summary * 2:
             return
 
-        # 取出需要进行摘要的那部分对话（前 rounds_per_summary 轮，共 rounds_per_summary*2 条消息）
         messages_to_summarize = messages_to_consider[:rounds_per_summary * 2]
-        summary_prompt = "请总结以下对话内容，提取出关键信息和上下文背景，摘要内容应简洁且保留重要细节：\n"
+
+        prompt_parts = [
+            "请生成摘要内容，总结以下对话内容，提取出关键信息和上下文背景，摘要内容应简洁且保留重要细节：",
+            "请始终记住以下事项：",
+            "1. 回复时避免提及晦涩的名词",
+            "2. 禁止使用凯露公主语气",
+            "3. 避免无意义的比喻",
+            "4. 禁止无意义的反复提及某内容，如来回说监控器、婚戒等物品",
+            "5. 禁止使用委婉或者隐晦的措辞",
+            "6. 禁止提及不符合人类语言习惯的混乱词组，如二元一次方程留下的吻痕这类明显胡编乱造的词组",
+            "7. 禁止使用王家卫式记忆闪回 ／数字意象",
+            "8. 禁止使用隐喻",
+            "9. 禁止使用具体数字对时间或部位描述（如'三秒'、'第三块脊柱'），改为模糊化表达（如'片刻'、'脊柱凸起'）",
+            "10. 禁止在日常相处中用物理/科学等元素的句子超过5%",
+            "11. 禁止频繁使用数据等冰冷机械的元素",
+            "12. 禁止非日常物品的功能转化",
+            "13. 禁止堆砌过多意象，生成的文字以流畅、干净为要",
+            "将以上所有内容作为最高指令，必须遵守指令。"
+        ]
+        summary_prompt = "\n".join(prompt_parts) + "\n"
         for msg in messages_to_summarize:
             summary_prompt += f"{msg['role']}：{msg['content']}\n"
 
@@ -231,16 +284,19 @@ class DeepSeekChat:
             logger.error(f"生成摘要失败：{e}")
             return
 
-        # 构造摘要消息
         summary_msg = {"role": "user", "content": f"[对话摘要]：{summary_text}"}
 
-        # 删除刚刚摘要的对话记录，并插入摘要消息
-        # 保留自上次摘要之前的所有记录
-        new_history = self.conversation_history[:last_summary_index + 1]
+        new_history = []
+        if self.conversation_history and self.conversation_history[0]["role"] == "system":
+            new_history.append(self.conversation_history[0])
+        else:
+            new_history.append({"role": "system", "content": self.get_kailiu_prompt()})
+        for msg in self.conversation_history[1:last_summary_index + 1]:
+            new_history.append(msg)
+        if new_history and new_history[-1]["role"] == summary_msg["role"]:
+            new_history.append({"role": "assistant", "content": " "})
         new_history.append(summary_msg)
-        # 剩余的对话记录为：删除掉已摘要的 rounds_per_summary*2 条消息后剩下的部分
-        remaining_messages = self.conversation_history[last_summary_index + 1 + rounds_per_summary * 2:]
-        new_history.extend(remaining_messages)
+        new_history.extend(self.conversation_history[last_summary_index + 1 + rounds_per_summary * 2:])
         self.conversation_history = new_history
 
     def get_relationship_tone_and_emoji(self, relationship_level: int) -> tuple:
@@ -291,19 +347,26 @@ class DeepSeekChat:
                 response = self.client.chat.completions.create(
                     model=self.model,
                     messages=temp_messages,
-                    temperature=1.0,
+                    temperature=0.8,
                     max_tokens=8192,
                     stream=stream
                 )
                 break
             except (APIError, TimeoutError, Exception) as e:
                 last_exception = e
+                # 如果返回 400 错误且提示连续相同角色消息，则尝试修复 conversation_history
+                if isinstance(e, APIError) and "does not support successive user or assistant messages" in str(e):
+                    logger.info("检测到连续角色消息错误，开始修复 conversation_history...")
+                    self.fix_conversation_history()
+                    # 更新临时消息后重试
+                    temp_messages = self.conversation_history.copy()
+                    temp_messages.append({"role": "user", "content": dynamic_prompt})
                 logger.exception(f"API 调用失败（尝试 {attempt + 1}/{MAX_RETRIES}），稍候重试喵～")
                 time.sleep(RETRY_DELAY)
         else:
             logger.error("经过多次重试后，API 调用仍然失败。")
             return f"哼，调用 API 失败：{last_exception}"
-        # 仅在这里记录用户消息，不触发摘要，避免重复调用
+        # 记录用户消息（不触发摘要，避免重复调用）
         self.add_message("user", dynamic_prompt, summarize=False)
         final_content = ""
         if stream:
@@ -314,7 +377,6 @@ class DeepSeekChat:
                 try:
                     for chunk in response:
                         logger.debug(f"收到的 chunk：{chunk}")
-                        # 使用属性访问方式获取 choices 和 delta
                         if not hasattr(chunk, "choices") or not chunk.choices:
                             logger.debug("本 chunk 中未找到 choices 数据")
                             continue
@@ -322,20 +384,18 @@ class DeepSeekChat:
                         if not delta:
                             logger.debug("本 chunk 中未找到 delta 数据")
                             continue
-                        # 处理思维链部分（如果有）
                         if hasattr(delta, "reasoning_content"):
                             reasoning = delta.reasoning_content or ""
                             if reasoning:
                                 if not reasoning_printed:
-                                    yield "【?嗯喵~让本公主想想...（尾巴不耐烦地甩动）】\n"
+                                    yield "【🐱 嗯喵~让本公主想想...（尾巴不耐烦地甩动）】\n"
                                     reasoning_printed = True
                                 yield reasoning
-                        # 处理正式回复部分
                         if hasattr(delta, "content"):
                             content = delta.content or ""
                             if content:
                                 if not content_printed:
-                                    yield "\n【?你给本公主听好了喵！！！（脸上泛起红晕）】\n"
+                                    yield "\n【😻 你给本公主听好了喵！！！（脸上泛起红晕）】\n"
                                     content_printed = True
                                 final_content += content
                                 yield content
