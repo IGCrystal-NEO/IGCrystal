@@ -1,18 +1,30 @@
 @tim.command("设置定时", alias={'定时', '设置'})
-async def set_timing(self, event: AstrMessageEvent, task_type: str, time_value: str, content: str):
+async def set_timing(self, event: AstrMessageEvent, task_type: str, time_value: str, *content_parts: str):
     """
     添加定时任务并设置发送内容（一步到位）
     示例:
-      tim 设置定时 interval 5 儿童节快乐
-      tim 设置定时 fixed 20时30分 快到点了，该发送啦！
-      tim 设置定时 once 10 临时提醒：快吃饭喵~
+      tim 设置定时 interval 0.5 """Ciallo～(∠・ω< )⌒☆
+      我是男的还是女的?"""
+      
     任务类型：
       interval: 每隔指定分钟发送
       fixed: 每天在指定时间发送 (支持格式：HH时MM分、HHMM、HH:MM，UTC+8)
       once: 延迟指定分钟后发送一次
 
-    注意：发送内容中的空格、换行及双引号会原样保留。如果内容中有空格，请确保整体作为一个参数传递。
+    注意：如果内容中包含空格、换行或双引号，
+           请用三引号或单引号包裹整个发送内容，
+           插件会自动去除包裹的引号，保留中间的原始格式。
     """
+    # 将捕获到的所有部分拼接成一个字符串，保留中间空格
+    content = " ".join(content_parts)
+    # 自动去除包裹的三引号或单引号（如果存在）
+    if (content.startswith('"""') and content.endswith('"""')) or \
+       (content.startswith("'''") and content.endswith("'''")):
+        content = content[3:-3]
+    elif (content.startswith('"') and content.endswith('"')) or \
+         (content.startswith("'") and content.endswith("'")):
+        content = content[1:-1]
+
     # 参数验证
     if not task_type.strip():
         yield event.plain_result("任务类型不能为空，请输入任务类型。")
@@ -48,7 +60,7 @@ async def set_timing(self, event: AstrMessageEvent, task_type: str, time_value: 
     task_data = {
         "type": task_type,
         "time": time_value,
-        "content": content,  # 保存发送内容
+        "content": content,  # 保存处理后的发送内容
         "status": "active",
         "create_time": now.isoformat(),
         "last_run": None,
