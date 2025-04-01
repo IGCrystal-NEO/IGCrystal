@@ -94,31 +94,30 @@ class TimPlugin(Star):
         except Exception as e:
             logging.error("保存 tim.json 失败：%s", e)
 
-@staticmethod
-def parse_time(time_str: str) -> tuple:
-    """
-    解析固定时间格式，支持以下格式：
-      1. "HH时MM分"（例如 20时30分）
-      2. "HHMM"（例如 2030）
-      3. "HH:MM"（例如 20:30）
-    返回 (hour, minute)
-    """
-    patterns = [
-        r'^(\d{1,2})时(\d{1,2})分$',
-        r'^(\d{2})(\d{2})$',
-        r'^(\d{1,2}):(\d{1,2})$'
-    ]
-    
-    for pattern in patterns:
-        match = re.match(pattern, time_str)
-        if match:
-            hour = int(match.group(1))
-            minute = int(match.group(2))
-            if 0 <= hour < 24 and 0 <= minute < 60:
-                return hour, minute
-            else:
-                raise ValueError("时间范围错误，小时应在 0-23 之间，分钟应在 0-59 之间。")
-    raise ValueError("时间格式错误，请使用 'HH时MM分'、'HHMM' 或 'HH:MM' 格式，例如 20时30分, 2030, 或 20:30。")
+    @staticmethod
+    def parse_time(time_str: str) -> tuple:
+        """
+        解析固定时间格式，支持以下格式：
+          1. "HH时MM分"（例如 20时30分）
+          2. "HHMM"（例如 2030）
+          3. "HH:MM"（例如 20:30）
+        返回 (hour, minute)
+        """
+        patterns = [
+            r'^(\d{1,2})时(\d{1,2})分$',
+            r'^(\d{2})(\d{2})$',
+            r'^(\d{1,2}):(\d{1,2})$'
+        ]
+        for pattern in patterns:
+            match = re.match(pattern, time_str)
+            if match:
+                hour = int(match.group(1))
+                minute = int(match.group(2))
+                if 0 <= hour < 24 and 0 <= minute < 60:
+                    return hour, minute
+                else:
+                    raise ValueError("时间范围错误，小时应在 0-23 之间，分钟应在 0-59 之间。")
+        raise ValueError("时间格式错误，请使用 'HH时MM分'、'HHMM' 或 'HH:MM' 格式，例如 20时30分, 2030, 或 20:30。")
 
     @staticmethod
     def parse_message(content: str):
@@ -195,7 +194,6 @@ def parse_time(time_str: str) -> tuple:
         target = task.get("target")
         content = task.get("content")
         if target and content:
-            # 使用 MessageChain 的 message() 方法构造消息链
             chain = MessageChain().message(content)
             logging.debug("准备发送任务消息到目标 %s，内容: %s", target, content)
             try:
@@ -210,101 +208,98 @@ def parse_time(time_str: str) -> tuple:
     @filter.command_group("tim")
     def tim(self):
         pass
-        
-@tim.command("设置定时", alias={'定时', '设置'})
-async def set_timing(self, event: AstrMessageEvent, task_type: str, time_value: str, *content: str):
-    """
-    添加定时任务并设置发送内容（一步到位）
-    示例:
-      tim 设置定时 interval 5 二二 儿童节快乐
-      tim 设置定时 fixed 20时30分 快到点了，该发送啦！
-      tim 设置定时 once 10 临时提醒：快吃饭喵~
-    任务类型：
-      interval: 每隔指定分钟发送
-      fixed: 每天在指定时间发送 (支持格式：HH时MM分、HHMM、HH:MM，UTC+8)
-      once: 延迟指定分钟后发送一次
 
-    注意：发送内容中的空格、换行及双引号会原样保留。用户在输入内容时，
-    如果内部需要出现双引号，则可以用转义字符 \" 来输入。
-    """
-    # 将捕获到的所有内容参数合并成一个字符串，并处理转义的双引号
-    content_str = " ".join(content).replace('\\"', '"')
-    
-    # 参数验证
-    if not task_type.strip():
-        yield event.plain_result("任务类型不能为空，请输入任务类型。")
-        return
-    if not time_value.strip():
-        yield event.plain_result("时间参数不能为空，请输入时间参数。")
-        return
-    if task_type == "fixed":
-        try:
-            self.__class__.parse_time(time_value)
-        except ValueError as e:
-            yield event.plain_result(str(e))
+    @tim.command("设置定时", alias={'定时', '设置'})
+    async def set_timing(self, event: AstrMessageEvent, task_type: str, time_value: str, *content: str):
+        """
+        添加定时任务并设置发送内容（一步到位）
+        示例:
+        tim 设置定时 interval 5 二二 儿童节快乐
+        tim 设置定时 fixed 20时30分 快到点了，该发送啦！
+        tim 设置定时 once 10 临时提醒：快吃饭喵~
+        任务类型：
+        interval: 每隔指定分钟发送
+        fixed: 每天在指定时间发送 (支持格式：HH时MM分、HHMM、HH:MM，UTC+8)
+        once: 延迟指定分钟后发送一次
+
+        注意：发送内容中的空格、换行及双引号会原样保留。用户在输入内容时，
+        如果内部需要出现双引号，则可以用转义字符 \" 来输入。
+        """
+        content_str = " ".join(content).replace('\\"', '"')
+
+        if not task_type.strip():
+            yield event.plain_result("任务类型不能为空，请输入任务类型。")
             return
-    elif task_type in ("interval", "once"):
-        try:
-            float(time_value)
-        except ValueError:
-            yield event.plain_result(f"{task_type} 类型任务的时间参数应为数字（单位：分钟）。")
+        if not time_value.strip():
+            yield event.plain_result("时间参数不能为空，请输入时间参数。")
             return
-    else:
-        yield event.plain_result("未知的任务类型，请使用 interval, fixed 或 once。")
-        return
+        if task_type == "fixed":
+            try:
+                self.__class__.parse_time(time_value)
+            except ValueError as e:
+                yield event.plain_result(str(e))
+                return
+        elif task_type in ("interval", "once"):
+            try:
+                float(time_value)
+            except ValueError:
+                yield event.plain_result(f"{task_type} 类型任务的时间参数应为数字（单位：分钟）。")
+                return
+        else:
+            yield event.plain_result("未知的任务类型，请使用 interval, fixed 或 once。")
+            return
 
-    if not content_str.strip():
-        yield event.plain_result("发送内容不能为空，请输入发送内容。")
-        return
+        if not content_str.strip():
+            yield event.plain_result("发送内容不能为空，请输入发送内容。")
+            return
 
-    now = datetime.utcnow() + timedelta(hours=8)
-    umo = event.unified_msg_origin
-    if umo not in self.tasks:
-        self.tasks[umo] = {}
+        now = datetime.utcnow() + timedelta(hours=8)
+        umo = event.unified_msg_origin
+        if umo not in self.tasks:
+            self.tasks[umo] = {}
 
-    task_data = {
-        "type": task_type,
-        "time": time_value,
-        "content": content_str,  # 保存用户原始输入的发送内容
-        "status": "active",
-        "create_time": now.isoformat(),
-        "last_run": None,
-        "target": umo
-    }
-    task_id = str(self.next_id)
-    self.next_id += 1
-    self.tasks[umo][task_id] = task_data
-    self.__class__.save_tasks(self.tasks)
-    logging.debug("添加任务 %s: %s", task_id, task_data)
-    msg = (f"任务 {task_id} 已添加（会话: {umo}），类型: {task_type}，时间参数: {time_value}。\n"
-           "发送内容已设定，无需再单独设置。")
-    yield event.plain_result(msg)
-
-
-@tim.command("编辑信息", alias={'编辑', 'edit'})
-async def edit_info(self, event: AstrMessageEvent, task_id: int, *new_content: str):
-    """
-    编辑指定任务的发送内容
-    示例: tim 编辑信息 1 新的发送信息
-    注意：编辑时，请将任务编号后面的所有内容作为新的发送内容，支持空格、换行和双引号。
-    """
-    new_content_str = " ".join(new_content).replace('\\"', '"')
-    if not str(task_id).strip():
-        yield event.plain_result("任务编号不能为空，请输入任务编号。")
-        return
-    if not new_content_str.strip():
-        yield event.plain_result("发送信息不能为空，请输入新的发送信息。")
-        return
-
-    umo = event.unified_msg_origin
-    tid = str(task_id)
-    if umo in self.tasks and tid in self.tasks[umo]:
-        self.tasks[umo][tid]["content"] = new_content_str
+        task_data = {
+            "type": task_type,
+            "time": time_value,
+            "content": content_str,
+            "status": "active",
+            "create_time": now.isoformat(),
+            "last_run": None,
+            "target": umo
+        }
+        task_id = str(self.next_id)
+        self.next_id += 1
+        self.tasks[umo][task_id] = task_data
         self.__class__.save_tasks(self.tasks)
-        logging.debug("编辑任务 %s 的内容为: %s", tid, new_content_str)
-        yield event.plain_result(f"任务 {tid} 的发送内容已更新为:\n{new_content_str}")
-    else:
-        yield event.plain_result(f"任务 {tid} 在当前会话中不存在。")
+        logging.debug("添加任务 %s: %s", task_id, task_data)
+        msg = (f"任务 {task_id} 已添加（会话: {umo}），类型: {task_type}，时间参数: {time_value}。\n"
+               "发送内容已设定，无需再单独设置。")
+        yield event.plain_result(msg)
+
+    @tim.command("编辑信息", alias={'编辑', 'edit'})
+    async def edit_info(self, event: AstrMessageEvent, task_id: int, *new_content: str):
+        """
+        编辑指定任务的发送内容
+        示例: tim 编辑信息 1 新的发送信息
+        注意：编辑时，请将任务编号后面的所有内容作为新的发送内容，支持空格、换行和双引号。
+        """
+        new_content_str = " ".join(new_content).replace('\\"', '"')
+        if not str(task_id).strip():
+            yield event.plain_result("任务编号不能为空，请输入任务编号。")
+            return
+        if not new_content_str.strip():
+            yield event.plain_result("发送信息不能为空，请输入新的发送信息。")
+            return
+
+        umo = event.unified_msg_origin
+        tid = str(task_id)
+        if umo in self.tasks and tid in self.tasks[umo]:
+            self.tasks[umo][tid]["content"] = new_content_str
+            self.__class__.save_tasks(self.tasks)
+            logging.debug("编辑任务 %s 的内容为: %s", tid, new_content_str)
+            yield event.plain_result(f"任务 {tid} 的发送内容已更新为:\n{new_content_str}")
+        else:
+            yield event.plain_result(f"任务 {tid} 在当前会话中不存在。")
 
     @tim.command("取消", alias={'取消任务'})
     async def cancel_task(self, event: AstrMessageEvent, task_id: int):
