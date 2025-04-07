@@ -7,8 +7,10 @@ export const useCommonStore = defineStore({
     eventSource: null,
     log_cache: [],
     sse_connected: false,
+
     log_cache_max_len: 1000,
     startTime: -1,
+
     tutorial_map: {
       "qq_official_webhook": "https://astrbot.app/deploy/platform/qqofficial/webhook.html",
       "qq_official": "https://astrbot.app/deploy/platform/qqofficial/websockets.html",
@@ -19,6 +21,7 @@ export const useCommonStore = defineStore({
       "telegram": "https://astrbot.app/deploy/platform/telegram.html",
       "dingtalk": "https://astrbot.app/deploy/platform/dingtalk.html",
     },
+
     pluginMarketData: [],
   }),
   actions: {
@@ -46,7 +49,8 @@ export const useCommonStore = defineStore({
 
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
-        let buffer = ''; // 用于暂存不完整的数据片段
+        let buffer = ''; // 用于暂存不完整的消息片段
+        const MAX_BUFFER_LENGTH = 10000; // 设置缓冲区最大长度
 
         const processStream = ({ done, value }) => {
           if (done) {
@@ -58,28 +62,45 @@ export const useCommonStore = defineStore({
             return;
           }
 
-          // 将新的数据追加到缓存中，并尽可能解码完整数据
+          // 追加数据到缓冲区，确保流式解码
           buffer += decoder.decode(value, { stream: true });
-          // 按行分割数据
-          const lines = buffer.split('\n');
-          // 最后一行可能是不完整的，保留在 buffer 中
-          buffer = lines.pop();
 
-          lines.forEach(line => {
-            if (line.startsWith('data:')) {
+          // 检查缓冲区长度，防止无限积累
+          if (buffer.length > MAX_BUFFER_LENGTH) {
+            console.warn('Buffer length exceeded, truncating old data');
+            buffer = buffer.substring(buffer.length - MAX_BUFFER_LENGTH);
+          }
+
+          // 使用双换行符分割消息块
+          const parts = buffer.split('\n\n');
+          // 最后一部分可能是不完整的，保留到下一次处理
+          buffer = parts.pop();
+
+          parts.forEach(part => {
+            // 每个消息块可能包含多行，取所有以 "data:" 开头的行
+            const lines = part.split('\n').filter(line => line.startsWith('data:'));
+            lines.forEach(line => {
               const data = line.substring(5).trim();
+              let data_json = {};
               try {
-                let data_json = JSON.parse(data);
-                if (data_json.type === 'log') {
-                  this.log_cache.push(data_json);
-                  if (this.log_cache.length > this.log_cache_max_len) {
-                    this.log_cache.shift();
-                  }
-                }
-              } catch (err) {
-                console.error('JSON parse error for data:', data, err);
+                data_json = JSON.parse(data);
+              } catch (e) {
+                console.error('Invalid JSON:', data, e);
+                // 构造默认日志信息，以保证后续流程不受影响
+                data_json = {
+                  type: 'log',
+                  data: data,
+                  level: 'INFO',
+                  time: new Date().toISOString(),
+                };
               }
-            }
+              if (data_json.type === 'log') {
+                this.log_cache.push(data_json);
+                if (this.log_cache.length > this.log_cache_max_len) {
+                  this.log_cache.shift();
+                }
+              }
+            });
           });
           return reader.read().then(processStream);
         };
@@ -94,7 +115,7 @@ export const useCommonStore = defineStore({
         }, 1000);
       });
 
-      // 保存 controller 以便以后能关闭连接
+      // 保存 controller 以便以后关闭连接
       this.eventSource = controller;
     },
     closeEventSourcet() {
