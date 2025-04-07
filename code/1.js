@@ -76,36 +76,42 @@ export const useCommonStore = defineStore({
           // 最后一部分可能是不完整的，保留到下一次处理
           buffer = parts.pop();
 
-          parts.forEach(part => {
+          for (let i = 0; i < parts.length; i++) {
+            const part = parts[i];
             // 提取所有以 "data:" 开头的行，并拼接成一个完整的字符串
             const lines = part.split('\n').filter(line => line.startsWith('data:'));
             const dataStr = lines.map(line => line.substring(5).trim()).join('');
-            // 检查是否看起来完整（假设 JSON 对象以 } 结尾）
-            if (!dataStr.trim().endsWith('}')) {
-              // 数据可能还未完整接收，将其重新放回缓冲区后跳过解析
-              buffer = dataStr + "\n\n" + buffer;
-              return;
-            }
-            let data_json = {};
             try {
-              data_json = JSON.parse(dataStr);
+              const data_json = JSON.parse(dataStr);
+              if (data_json.type === 'log') {
+                this.log_cache.push(data_json);
+                if (this.log_cache.length > this.log_cache_max_len) {
+                  this.log_cache.shift();
+                }
+              }
             } catch (e) {
-              console.error('Invalid JSON:', dataStr, e);
-              // 构造默认日志信息，以保证后续流程不受影响
-              data_json = {
-                type: 'log',
-                data: dataStr,
-                level: 'INFO',
-                time: new Date().toISOString(),
-              };
-            }
-            if (data_json.type === 'log') {
-              this.log_cache.push(data_json);
-              if (this.log_cache.length > this.log_cache_max_len) {
-                this.log_cache.shift();
+              // 如果错误信息中包含 "Unterminated"，说明可能是数据未完整接收，重新缓存后退出循环
+              if (e.message.includes("Unterminated")) {
+                buffer = dataStr + "\n\n" + buffer;
+                break;
+              } else {
+                console.error('Invalid JSON:', dataStr, e);
+                // 若非未结束的字符串错误，则构造默认日志信息继续处理
+                const data_json = {
+                  type: 'log',
+                  data: dataStr,
+                  level: 'INFO',
+                  time: new Date().toISOString(),
+                };
+                if (data_json.type === 'log') {
+                  this.log_cache.push(data_json);
+                  if (this.log_cache.length > this.log_cache_max_len) {
+                    this.log_cache.shift();
+                  }
+                }
               }
             }
-          });
+          }
           return reader.read().then(processStream);
         };
 
