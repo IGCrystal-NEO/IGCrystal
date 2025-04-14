@@ -1,0 +1,569 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <!-- 修改: 更新Google字体链接，增加专为标题设计的字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Baloo+2:wght@500;700&family=Finger+Paint&family=Fredoka+One&family=ZCOOL+KuaiLe&family=Ma+Shan+Zheng&family=Patrick+Hand&family=Bubblegum+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+  <link rel="stylesheet" href="/path/to/styles/default.min.css">
+  <script src="/path/to/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+      onload="renderMathInElement(document.getElementById('content'),{delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
+  <style>
+    /* 解决容器高度问题 */
+    html, body {
+      height: auto !important;
+      min-height: 100% !important;
+    }
+    
+    article {
+      height: auto !important;
+      overflow: visible !important;
+    }
+    
+    #content-wrapper {
+      height: auto !important;
+    }
+    
+    #content {
+      height: auto !important;
+      min-height: 200px !important;
+    }
+
+    /* 替换标题装饰元素，移除emoji */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.5 !important;
+      padding-left: 15px !important; 
+      border-left: 6px solid #ffc6d9 !important;
+      position: relative !important;
+    }
+
+    /* 清除原有emoji */
+    h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+      content: none !important;
+    }
+
+    /* 替换列表项装饰元素，移除emoji */
+    ul li:before {
+      content: "♥" !important;
+    }
+
+    ul li:nth-child(2n):before {
+      content: "♦" !important;
+    }
+
+    ul li:nth-child(3n):before {
+      content: "♠" !important;
+    }
+
+    /* 替换内容区角落装饰 */
+    #content::before,
+    #content::after {
+      content: "🌸" !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <span class="title"># AstrBot</span>
+    <span class="version">{{ version }} 喵 ✨</span>
+    <div class="sparkle right">📢</div>
+  </div>
+  <article>
+    <div id="content-wrapper">
+      <div id="content"></div>
+    </div>
+  </article>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    document.getElementById('content').innerHTML = marked.parse(`{{ text | safe}}`);
+  </script>
+</body>
+</html>
+<style>
+    html, body {
+        height: 100%;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        word-break: break-word;
+        line-height: 1.75;
+        font-weight: 400;
+        font-size: 42px;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        color: #6c567b;
+        font-family: 'ZCOOL KuaiLe', 'Ma Shan Zheng', 'Patrick Hand', 'Bubblegum Sans', cursive, sans-serif;
+        background-color: #fff6f9;
+        background-image: 
+            radial-gradient(#ffd1dc 2px, transparent 2px),
+            radial-gradient(#ffb6c1 2px, transparent 2px);
+        background-size: 40px 40px;
+        background-position: 0 0, 20px 20px;
+    }
+
+    /* 修改: 更新标题区域字体 */
+    .header {
+        background: linear-gradient(45deg, #ff85a2, #ffb6c1, #ffc6d9);
+        color: #fff;
+        font-size: 72px;
+        padding: 15px 20px;
+        text-align: left;
+        font-family: 'Baloo 2', 'ZCOOL KuaiLe', cursive;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        border-bottom: 8px solid;
+        border-image: linear-gradient(to right, #ff69b4, #ffb6c1, #ffe6eb, #ffb6c1, #ff69b4) 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    /* 修改: 更新AstrBot标题字体 */
+    .title {
+        font-weight: bold;
+        font-family: 'Luckiest Guy', 'Finger Paint', 'ZCOOL KuaiLe', cursive;
+        margin: 0 10px 0 0;
+        position: relative;
+        color: #ffffff;
+        text-shadow: 
+            0px 0px 6px #f95981,
+            3px 3px 0 #ff85a2;
+        padding: 0 8px;
+        font-size: 84px;
+        letter-spacing: 0.03em;
+    }
+
+    /* 修改: 更新版本号字体 */
+    .version {
+        font-size: 52px;
+        margin-left: 15px;
+        font-family: 'Fredoka One', 'Baloo 2', 'ZCOOL KuaiLe', cursive;
+        letter-spacing: 0.02em;
+    }
+
+    .sparkle {
+        font-size: 54px;
+        transform: rotate(20deg);
+    }
+
+    .sparkle.right {
+        margin-left: auto;
+        transform: rotate(-20deg);
+    }
+
+    article {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px 15px;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    #content-wrapper {
+        position: relative;
+        max-width: 80%;
+        width: 100%;
+        margin: 20px 0 40px 0;
+        padding: 10px;
+        border-radius: 35px;
+        background: linear-gradient(45deg, #ff85a2, #ffb6c1, #ffd1dc, #ffb6c1, #ff85a2);
+        box-shadow: 0 8px 20px rgba(255, 182, 193, 0.25);
+        box-sizing: border-box;
+    }
+
+    #content {
+        min-height: 200px;
+        width: 100%;
+        padding: 2rem 1.5rem;
+        background-color: #ffebef;
+        border-radius: 25px;
+        box-shadow: 
+            inset 0 2px 10px rgba(255, 255, 255, 0.5),
+            inset 0 -2px 10px rgba(255, 182, 193, 0.2);
+        position: relative;
+        background-image: 
+            linear-gradient(0deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+        box-sizing: border-box;
+        font-size: 42px;
+        margin-bottom: 20px;
+    }
+
+    #content::before,
+    #content::after {
+        content: '🌸';
+        position: absolute;
+        font-size: 32px;
+    }
+    
+    #content::before {
+        top: 10px;
+        right: 15px;
+    }
+    
+    #content::after {
+        bottom: 10px;
+        left: 15px;
+    }
+
+    /* 修复标题中emoji问题的样式 */
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.5;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        color: #ff85a2;
+        font-family: 'ZCOOL KuaiLe', 'Ma Shan Zheng', 'Patrick Hand', cursive;
+        letter-spacing: 0.05em; /* 增加字母间距 */
+        word-spacing: 0.1em; /* 增加词间距 */
+    }
+
+    h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+        margin-top: -1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* 增加装饰元素的右边距 */
+    h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+        content: "❀";
+        display: inline-block;
+        color: #ff5a82;
+        padding-right: 12px;
+        margin-right: 15px; /* 从5px增加到15px */
+        position: relative;
+        vertical-align: middle; /* 确保垂直居中 */
+    }
+
+    h1 {
+        position: relative;
+        font-size: 3rem;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 3px dotted #ffc6d9;
+    }
+
+    h1::before {
+        font-size: 3rem;
+    }
+
+    h2 {
+        padding-bottom: 0.5rem;
+        font-size: 2.6rem;
+        border-bottom: 2px dashed #ffb6c1;
+    }
+
+    h3 {
+        font-size: 2rem;
+        padding-bottom: 0;
+        text-decoration: underline wavy #ffcad4;
+    }
+
+    h4 {
+        font-size: 1.6rem;
+    }
+
+    h5 {
+        font-size: 1.3rem;
+    }
+
+    h6 {
+        margin-top: 5px;
+        font-size: 1.1rem;
+    }
+
+    p {
+        line-height: inherit;
+        margin-top: 22px;
+        margin-bottom: 22px;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+    }
+
+    strong {
+        color: #ff5a82;
+        background: linear-gradient(transparent 60%, #ffe6eb 40%);
+        padding: 0 4px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        display: block;
+        margin: 25px auto;
+        border: 8px solid rgba(255, 182, 193, 0.6);
+        box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+        outline: 2px dashed #ffc6d9;
+        outline-offset: -6px;
+        object-fit: contain;
+    }
+
+    hr {
+        border: none;
+        height: 20px;
+        background: url("data:image/svg+xml,%3Csvg width='100' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 25 0, 50 10 T 100 10 T 150 10 T 200 10' stroke='%23ffb6c1' stroke-width='3' fill='none'/%3E%3C/svg%3E") repeat-x;
+        margin: 32px 0;
+        position: relative;
+    }
+
+    hr::before, hr::after {
+        content: '🌸';
+        position: absolute;
+        top: -5px;
+        font-size: 20px;
+    }
+
+    hr::before {
+        left: 20%;
+    }
+
+    hr::after {
+        right: 20%;
+    }
+
+    code {
+        font-family: 'ZCOOL KuaiLe', 'Patrick Hand', monospace;
+        word-break: break-word;
+        overflow-x: auto;
+        padding: 0.25rem 0.6rem;
+        margin: 0;
+        color: #ff85a2;
+        font-size: 0.9em;
+        background-color: #fff0f5;
+        border-radius: 10px;
+        border: 1px dashed #ffc6d9;
+    }
+
+    pre {
+        overflow: auto;
+        position: relative;
+        line-height: 1.75;
+        border-radius: 15px;
+        border: 2px dashed #ffc6d9;
+        background-color: #fff8fa;
+        box-shadow: inset 0 0 10px rgba(255, 182, 193, 0.15);
+        padding: 15px;
+        margin: 20px 0;
+    }
+
+    /* 修改: 增大代码块字体尺寸 */
+    pre > code {
+        font-size: 28px;
+        padding: 15px 12px;
+        margin: 0;
+        word-break: normal;
+        display: block;
+        overflow-x: auto;
+        color: #6c567b;
+        background: #fff8fa;
+        border: none;
+        line-height: 1.6;
+        letter-spacing: 0.03em;
+    }
+
+    a {
+        font-weight: 500;
+        text-decoration: none;
+        color: #ff85a2;
+        border-bottom: 2px dotted #ffc6d9;
+        padding: 0 2px;
+    }
+
+    a:before {
+        content: "♥";
+        margin-right: 3px;
+    }
+
+    table {
+        display: inline-block !important;
+        font-size: 16px;
+        width: auto;
+        max-width: 100%;
+        overflow: auto;
+        border: 3px solid #ffc6d9;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(255, 182, 193, 0.2);
+        margin: 15px 0;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    thead {
+        background: linear-gradient(45deg, #ff85a2, #ffa6c1);
+        color: #fff;
+        text-align: left;
+    }
+
+    tr:nth-child(2n) {
+        background-color: #fff0f5;
+    }
+
+    th, td {
+        padding: 12px 7px;
+        line-height: 24px;
+        border: 1px solid #ffdae3;
+    }
+
+    td {
+        min-width: 120px;
+    }
+
+    th {
+        position: relative;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    blockquote {
+        color: #6c567b;
+        padding: 10px 23px;
+        margin: 22px 0;
+        border-left: 5px solid #ffc6d9;
+        background-color: #fff8fa;
+        border-radius: 0 15px 15px 0;
+        box-shadow: 2px 2px 8px rgba(255, 182, 193, 0.1);
+        background-image: 
+            repeating-linear-gradient(45deg, rgba(255, 230, 235, 0.3), 
+            rgba(255, 230, 235, 0.3) 10px, transparent 10px, transparent 20px);
+    }
+
+    blockquote::before {
+        content: '❝';
+        font-size: 32px;
+        color: #ff85a2;
+        margin-left: -15px;
+        position: absolute;
+    }
+
+    blockquote > p {
+        margin: 10px 0;
+        position: relative;
+    }
+
+    details {
+        border: none;
+        outline: none;
+        border-left: 4px solid #ffc6d9;
+        padding-left: 10px;
+        margin-left: 4px;
+        margin-bottom: 15px;
+        background-color: #fff8fa;
+        border-radius: 4px;
+    }
+
+    details summary {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background: #fff0f5;
+        margin: 0px -10px;
+        color: #ff85a2;
+        padding: 8px 15px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    details summary::-webkit-details-marker {
+        color: #ff85a2;
+    }
+
+    ol, ul {
+        padding-left: 28px;
+        margin: 15px 0;
+    }
+
+    ol li, ul li {
+        margin-bottom: 10px;
+        list-style: inherit;
+        position: relative;
+    }
+
+    ol li .task-list-item, ul li .task-list-item {
+        list-style: none;
+    }
+
+    ol li .task-list-item ul, ul li .task-list-item ul, ol li .task-list-item ol, ul li .task-list-item ol {
+        margin-top: 0;
+    }
+
+    ol ul, ul ul, ol ol, ul ol {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    ol li {
+        padding-left: 8px;
+    }
+
+    ol li::marker {
+        color: #ff85a2;
+        font-weight: bold;
+    }
+
+    ul li {
+        list-style: none;
+        padding-left: 8px;
+    }
+
+    ul li:before {
+        content: "🌸";
+        margin-right: 8px;
+        color: #ff85a2;
+        position: absolute;
+        left: -25px;
+    }
+
+    ul li:nth-child(2n):before {
+        content: "🌺";
+    }
+
+    ul li:nth-child(3n):before {
+        content: "🎀";
+    }
+
+    @media (max-width: 720px) {
+        body {
+            font-size: 32px;
+        }
+        
+        .header {
+            font-size: 54px;
+        }
+        
+        .title {
+            font-size: 64px;
+        }
+        
+        .version {
+            font-size: 36px;
+        }
+        
+        #content-wrapper {
+            max-width: 95%;
+            margin: 10px 0 30px 0;
+        }
+        
+        h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+            padding-right: 10px;
+            margin-right: 10px;
+        }
+        
+        img {
+            max-width: calc(100% - 10px);
+            margin: 20px auto;
+        }
+        
+        /* 响应式代码块字体 */
+        pre > code {
+            font-size: 22px;
+        }
+    }
+</style>
