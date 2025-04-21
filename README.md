@@ -2,6 +2,8 @@
 
 <img src="https://raw.githubusercontent.com/IGCyukira/IGCyukira/refs/heads/main/img/ChatGPT%20Image%202025%E5%B9%B44%E6%9C%8821%E6%97%A5%2017_17_16.png" width="266"></img>
 
+来了解[冰苷晶](https://github.com/IGCyukira)吧
+
 #### 😊 Coding is a hobby.
 
 
