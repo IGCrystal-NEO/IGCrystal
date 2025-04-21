@@ -1,6 +1,6 @@
 ## Hi🖐️ There!
 
-<img src="https://raw.githubusercontent.com/IGCrystal/IGCrystal/refs/heads/main/test/img/%E5%9C%86%E8%A7%92-1742824331489.jpg" width="266" height="200"></img>
+<img src="https://raw.githubusercontent.com/IGCyukira/IGCyukira/refs/heads/main/img/ChatGPT%20Image%202025%E5%B9%B44%E6%9C%8821%E6%97%A5%2017_17_16.png" width="266"></img>
 
 #### 😊 Coding is a hobby.
 
@@ -263,7 +263,6 @@ The road is long, but the dream is still alive.
 
 
 #### 😊 写代码是一种兴趣使然
-
 
 路很长，梦还在
 
