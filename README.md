@@ -1,11 +1,4 @@
-## Hi🖐️ There!
-
-<img src="https://raw.githubusercontent.com/IGCyukira/IGCyukira/refs/heads/main/img/ChatGPT%20Image%202025%E5%B9%B44%E6%9C%8821%E6%97%A5%2017_17_16.png" width="266"></img>
-
-来了解[冰苷晶](https://github.com/IGCyukira)吧
-
-#### 😊 Coding is a hobby.
-
+## Hi🖐️ There
 
 The road is long, but the dream is still alive.
 
@@ -263,9 +256,4 @@ The road is long, but the dream is still alive.
  .=****++*+-:-+**+******+:                     ::=-:::::::++=+-.++=+-     :=   ....--:...:::...::-=++===--::::...:::=-                    .                                                                    .-.=:             -=::-:==.......-*-*####=.... .::-+***++++++++*++=-:.                 -=.       ..--:::::-......:==----.     .:                              -#******#+                         ........... --.......--.                                                  .                         
 ```
 
-
-#### 😊 写代码是一种兴趣使然
-
 路很长，梦还在
-
-[About Myself](https://github.com/IGCrystal/IGCrystal/blob/main/aboutme.md)
