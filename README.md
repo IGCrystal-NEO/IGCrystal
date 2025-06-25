@@ -2,6 +2,12 @@
 
 The road is long, but the dream is still alive.
 
+<!-- GitHub Stats -->
+![](https://github-readme-stats.vercel.app/api?username=IGCrystal&show_icons=true&theme=radical)
+
+<!-- Top Languages -->
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=IGCrystal&layout=compact&theme=nightowl)
+
 
 ```
 **%@@@@@@%%*++++++**+==--==#%%*=--------=*####+-----+#*++=====+##*====+=-----------------::::---==--:::::::::-==--=++===--=======++=---===----=-:---::::::--:..                                                                      ...     ....      ..         .:::::::::.                                                                      ...:---------------------::.                   ......:::::::::::::::::::::::::::..                                           ..                                  
