@@ -262,4 +262,53 @@ The road is long, but the dream is still alive.
  .=****++*+-:-+**+******+:                     ::=-:::::::++=+-.++=+-     :=   ....--:...:::...::-=++===--::::...:::=-                    .                                                                    .-.=:             -=::-:==.......-*-*####=.... .::-+***++++++++*++=-:.                 -=.       ..--:::::-......:==----.     .:                              -#******#+                         ........... --.......--.                                                  .                         
 ```
 
+---
+
+## 💚 心理健康支持 | Mental Health Support
+
+> 🌸 **生命是珍贵的，你的存在很重要** | **Life is precious, and your existence matters**
+> 
+> 如果你正在经历困难时期，请记住你并不孤单。每个人都值得被关爱和支持，寻求帮助是勇敢的表现。
+> 
+> *If you're going through a difficult time, please remember you are not alone. Everyone deserves love and support, and seeking help is a sign of strength.*
+
+### 🆘 紧急求助 | Emergency Help
+
+如果你或身边的人有自杀想法或正在经历心理健康危机，请立即寻求帮助：
+
+*If you or someone you know is having suicidal thoughts or experiencing a mental health crisis, please seek immediate help:*
+
+- **🇨🇳 中国危机干预热线**: 400-161-9995 (24小时)
+- **🇺🇸 988 Suicide & Crisis Lifeline**: 988 (24/7)
+- **🇬🇧 Samaritans**: 116 123 (Free, 24/7)
+- **🌍 国际资源 | International**: [Crisis Centres Directory](https://www.iasp.info/resources/Crisis_Centres/)
+
+### 📚 完整资源指南 | Complete Resource Guide
+
+我们创建了一个comprehensive的心理健康资源文件，包含：
+
+*We've created a comprehensive mental health resource file containing:*
+
+- 🌍 全球自杀预防热线 | Global suicide prevention hotlines
+- 💚 在线心理健康支持 | Online mental health support
+- 🏥 专业心理健康服务 | Professional mental health services
+- 🌟 积极生活建议 | Positive living tips
+- 🤗 危机干预信息 | Crisis intervention information
+
+**👉 [查看完整心理健康资源 | View Complete Mental Health Resources](./MENTAL_HEALTH_RESOURCES.md)**
+
+### 💝 重要提醒 | Important Reminders
+
+- **你的生命很重要** | **Your life matters**
+- **寻求帮助是勇敢的** | **Seeking help is brave**
+- **困难是暂时的** | **Difficulties are temporary**
+- **你值得被爱** | **You deserve love**
+- **专业帮助是有效的** | **Professional help works**
+
+> 🌅 *"黑夜无论怎样悠长，白昼总会到来。" - 莎士比亚*
+> 
+> 🌅 *"No matter how long the night, the dawn will break." - Shakespeare*
+
+---
+
 路很长，梦还在
