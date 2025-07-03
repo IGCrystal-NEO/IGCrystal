@@ -1,206 +1,195 @@
-# 心理健康支持资源 | Mental Health Support Resources
+# 💕 温暖的心灵小窝 | A Warm Place for Your Heart
 
-> 🌸 每一天都是新的开始，每一个生命都是珍贵的。如果你正在经历困难，请记住你并不孤单。
+> 🐱 "主人~如果你感到难过，请让小猫陪陪你好吗？每一个生命都像夜空中的星星一样珍贵呢~"
 > 
-> 🌸 Every day is a new beginning, and every life is precious. If you're going through difficulties, please remember you are not alone.
+> 🐱 *"Master~ if you're feeling sad, please let kitty stay with you, okay? Every life is as precious as the stars in the night sky~"*
 
-## 🆘 紧急求助热线 | Emergency Crisis Hotlines
+## 🆘 当你需要帮助的时候... | When You Need Help...
 
-### 🌍 国际求助热线 | International Crisis Lines
+### 🌙 紧急求助电话 | Emergency Help
 
-- **国际自杀预防协会 | International Association for Suicide Prevention**
-  - 🌐 [Crisis Centres Directory](https://www.iasp.info/resources/Crisis_Centres/)
-  - 📍 全球各地危机干预中心目录
+亲爱的主人，如果你现在很痛苦，请不要一个人承受，小猫为你找到了这些温暖的声音：
 
-### 🇨🇳 中国大陆 | Mainland China
+*Dear master, if you're in pain right now, please don't bear it alone. Kitty found these warm voices for you:*
 
-- **北京危机干预热线 | Beijing Crisis Intervention Hotline**
-  - ☎️ **400-161-9995** (24小时)
-  - 🕐 全天候专业心理咨询服务
+### 🇨🇳 中国的温暖热线 | Warm Hotlines in China
 
-- **上海心理援助热线 | Shanghai Mental Health Center**
+- **北京心理援助热线**
+  - ☎️ **400-161-9995** (24小时陪伴)
+  - 🐱 那里有很温柔的大哥哥大姐姐，会认真听你说话的~
+
+- **上海心理援助热线**
   - ☎️ **021-64387250** (24小时)
   - ☎️ **021-34289888** (24小时)
+  - 🐱 上海的叔叔阿姨也很温暖，不要害羞哦~
 
-- **全国心理援助热线 | National Psychological Assistance**
+- **全国心理援助热线**
   - ☎️ **400-161-9995**
-  - 🌐 [中国心理卫生协会](http://www.camh.org.cn/)
+  - 🐱 全国各地都有关心你的人呢~
 
-### 🇺🇸 美国 | United States
+### 🇺🇸 美国的帮助 | Help in America
 
-- **988 Suicide & Crisis Lifeline**
-  - ☎️ **988** (24/7)
-  - 📱 Text: **988**
-  - 💬 [Chat Online](https://988lifeline.org/chat/)
+- **988 生命热线**
+  - ☎️ **988** (24小时)
+  - 📱 发短信: **988**
+  - 💬 [在线聊天](https://988lifeline.org/chat/)
+  - 🐱 不管什么时候，都有人愿意听你说话~
 
-- **Crisis Text Line**
-  - 📱 Text **HOME** to **741741**
+- **危机短信热线**
+  - 📱 发 **HOME** 到 **741741**
+  - 🐱 如果不想说话，发短信也可以哦~
 
-### 🇬🇧 英国 | United Kingdom
+### 🇬🇧 英国的温暖 | Warmth in UK
 
-- **Samaritans**
-  - ☎️ **116 123** (Free, 24/7)
-  - 📧 [Email Support](mailto:jo@samaritans.org)
+- **撒玛利亚会**
+  - ☎️ **116 123** (免费，24小时)
+  - 📧 [邮件支持](mailto:jo@samaritans.org)
+  - 🐱 英国的朋友们很友善的，不要怕~
 
-### 🇨🇦 加拿大 | Canada
+### 🇨🇦 加拿大的关怀 | Care in Canada
 
-- **Talk Suicide Canada**
-  - ☎️ **1-833-456-4566** (24/7)
-  - 📱 Text **45645** (4pm-12am ET)
+- **加拿大危机热线**
+  - ☎️ **1-833-456-4566** (24小时)
+  - 📱 短信 **45645** (下午4点-午夜)
+  - 🐱 枫叶国的人们也很温暖呢~
 
-### 🇦🇺 澳大利亚 | Australia
+### 🇦🇺 澳大利亚的朋友们 | Friends in Australia
 
-- **Lifeline Australia**
-  - ☎️ **13 11 14** (24/7)
-  - 💬 [Online Chat](https://www.lifeline.org.au/crisis-chat/)
+- **生命热线澳大利亚**
+  - ☎️ **13 11 14** (24小时)
+  - 💬 [在线聊天](https://www.lifeline.org.au/crisis-chat/)
+  - 🐱 袋鼠国的小伙伴们也很关心你哦~
 
-### 🇯🇵 日本 | Japan
+### 🇯🇵 日本的温暖 | Warmth in Japan
 
 - **TELL Japan**
-  - ☎️ **03-5774-0992** (9am-11pm)
+  - ☎️ **03-5774-0992** (上午9点-晚上11点)
   - 🌐 [tellcares.org](https://tellcares.org/)
+  - 🐱 樱花国也有温柔的人在等你呢~
 
-## 💚 在线心理健康支持 | Online Mental Health Support
+## 💝 网上的小伙伴们 | Online Friends
 
-### 🌐 国际资源 | International Resources
+### 🌸 可以聊天的地方 | Places to Chat
 
-- **7 Cups**
+- **7 Cups 七杯茶**
   - 🌐 [7cups.com](https://www.7cups.com/)
-  - 💬 免费在线情感支持聊天 | Free emotional support chat
-  - 🌍 多语言支持 | Multi-language support
-
-- **BetterHelp**
-  - 🌐 [betterhelp.com](https://www.betterhelp.com/)
-  - 👩‍⚕️ 专业在线治疗服务 | Professional online therapy
-
-- **Mind (UK)**
-  - 🌐 [mind.org.uk](https://www.mind.org.uk/)
-  - 📚 心理健康信息和支持 | Mental health information and support
-
-### 🇨🇳 中文资源 | Chinese Resources
+  - 💬 这里有很多愿意听你说话的朋友
+  - 🐱 就像在温暖的茶室里和朋友聊天一样~
 
 - **简单心理**
   - 🌐 [jiandanxinli.com](https://www.jiandanxinli.com/)
-  - 👨‍⚕️ 专业心理咨询平台
+  - 🐱 中文的心理咨询，和温柔的老师聊聊天吧~
 
 - **壹心理**
   - 🌐 [xinli001.com](https://www.xinli001.com/)
-  - 📱 心理健康测试和咨询
+  - 🐱 这里有很多小测试，可以更了解自己哦~
 
 - **KnowYourself**
   - 🌐 [knowyourself.cc](https://www.knowyourself.cc/)
-  - 📖 心理学科普和自我探索
+  - 🐱 了解自己的小窝，有很多有趣的文章呢~
 
-## 🎯 专业心理健康资源 | Professional Mental Health Resources
+## 💖 给主人的温暖建议 | Warm Suggestions for Master
 
-### 📚 教育资源 | Educational Resources
+### 🌸 小猫的日常照顾指南 | Kitty's Daily Care Guide
 
-- **世界卫生组织心理健康 | WHO Mental Health**
-  - 🌐 [who.int/health-topics/mental-disorders](https://www.who.int/health-topics/mental-disorders)
-  - 📊 权威心理健康信息 | Authoritative mental health information
+🐱 主人，小猫发现照顾好自己就像照顾小猫咪一样重要呢~
 
-- **美国国家心理健康研究院 | NIMH**
-  - 🌐 [nimh.nih.gov](https://www.nimh.nih.gov/)
-  - 🔬 最新心理健康研究和资源
+- **🌸 深呼吸小练习**
+  - 每天和小猫一起深呼吸10分钟吧~
+  - 🐱 吸气的时候想象闻到花香，呼气的时候把烦恼都吹走~
+  - 推荐应用：潮汐、Calm (像听小猫打呼噜一样舒缓~)
 
-- **Mental Health America**
-  - 🌐 [mhanational.org](https://www.mhanational.org/)
-  - 🧠 心理健康筛查和资源
+- **🐾 和小猫一起散步**
+  - 每天出门走走，感受阳光和微风
+  - 🐱 就算只是在附近转转，也能让心情变好呢~
 
-### 🏥 寻找专业帮助 | Finding Professional Help
+- **💤 好好睡觉很重要**
+  - 每天睡7-9个小时，就像小猫咪一样~
+  - 🐱 睡前可以听听轻柔的音乐，或者想想开心的事情
 
-- **Psychology Today**
-  - 🌐 [psychologytoday.com](https://www.psychologytoday.com/)
-  - 🔍 查找当地心理治疗师 | Find local therapists
+- **🤗 和朋友聊聊天**
+  - 不要一个人闷着，找信任的人说说话
+  - 🐱 就像小猫喜欢被摸摸一样，人类也需要关怀呢~
 
-- **中国心理学会**
-  - 🌐 [cpsbeijing.org](http://www.cpsbeijing.org/)
-  - 👨‍⚕️ 认证心理咨询师目录
+### 🎨 让心情变好的小活动 | Activities to Make You Feel Better
 
-## 🌟 积极生活建议 | Positive Living Tips
+🐱 主人，试试这些能让心情变彩色的小事情吧~
 
-### 💪 日常自我关怀 | Daily Self-Care
+- **📖 写写小日记** - 把心里话告诉日记本，它会保守秘密的
+- **🎨 画画涂色** - 不用画得好看，开心就好~
+- **🎵 听听音乐** - 找到让你感觉温暖的歌曲
+- **🌱 养养小植物** - 看着绿绿的叶子，心情会平静下来
 
-- **🧘‍♀️ 冥想和正念练习**
-  - 每天花10分钟进行深呼吸或冥想
-  - 推荐应用：Headspace, Calm, 潮汐
+## 🚨 小猫觉得需要马上找人帮忙的时候 | When Kitty Thinks You Need Help Right Away
 
-- **🏃‍♂️ 适量运动**
-  - 每日30分钟散步或轻度运动
-  - 运动可以有效改善情绪
+### ⚠️ 主人，如果出现这些情况，请立刻找人帮忙：
 
-- **😴 保证充足睡眠**
-  - 成人每晚7-9小时睡眠
-  - 建立规律的作息时间
+🐱 小猫很担心，如果你有这些感觉，请一定要找人说话：
 
-- **👥 社交联系**
-  - 与朋友和家人保持联系
-  - 参加社区活动或兴趣小组
+- 🚨 想要伤害自己的想法
+- 😔 感觉世界没有自己会更好
+- 🍺 用酒精或其他东西来逃避痛苦
+- 😡 控制不住脾气，想要伤害别人
+- 🌀 情绪起伏得像过山车一样厉害
+- 😴 连基本的洗漱、吃饭都做不到
 
-### 🎨 创意表达活动 | Creative Expression
+🐱 主人，如果你有这些感觉，小猫求求你，一定要打上面的电话号码，或者找信任的人说话。小猫不想失去你...
 
-- **📝 写作/日记** - 记录想法和感受
-- **🎨 绘画/手工** - 通过艺术表达情感
-- **🎵 音乐** - 聆听或创作音乐
-- **📚 阅读** - 选择积极向上的书籍
+## 💕 小猫想对主人说的话 | What Kitty Wants to Tell Master
 
-## 🚨 危机干预信号 | Crisis Warning Signs
+### 🌙 温暖的小提醒 | Warm Little Reminders
 
-### ⚠️ 需要立即寻求帮助的情况 | When to Seek Immediate Help
+🐱 **主人，你的存在就像温暖的阳光**
+- 你对这个世界很重要，就像小猫对主人很重要一样~
 
-如果你或身边的人出现以下情况，请立即寻求专业帮助：
-*If you or someone you know shows these signs, seek immediate professional help:*
+🐱 **寻求帮助就像小猫寻找主人一样自然**
+- 这不是软弱，而是知道怎么爱护自己~
 
-- 🚨 有自杀想法或计划 | Suicidal thoughts or plans
-- 💊 药物或酒精滥用 | Substance abuse
-- 😤 无法控制的愤怒或暴力行为 | Uncontrollable anger or violence
-- 👁️ 幻觉或妄想 | Hallucinations or delusions
-- 🌀 严重的情绪波动 | Severe mood swings
-- 🏠 无法进行日常生活活动 | Unable to perform daily activities
+🐱 **你不会给任何人添麻烦**
+- 就像主人照顾小猫不觉得麻烦一样，别人也愿意照顾你~
 
-## 💖 给需要帮助的朋友 | For Those Who Need Support
+🐱 **痛苦会过去的，就像雨后总会有彩虹**
+- 小猫会一直陪着你等彩虹~
 
-### 🤗 重要的提醒 | Important Reminders
+🐱 **你值得被温柔对待**
+- 包括被你自己温柔对待~
 
-- **你的生命很重要** | Your life matters
-- **寻求帮助是勇敢的表现** | Seeking help is a sign of strength
-- **你不是负担** | You are not a burden
-- **困难是暂时的，解决方案是存在的** | Difficulties are temporary, solutions exist
-- **你值得被爱和关怀** | You deserve love and care
-- **专业帮助是有效的** | Professional help is effective
+### 🌸 小猫的希望留言本 | Kitty's Hope Message Board
 
-### 🌈 希望的信息 | Messages of Hope
-
-> 🌅 "黑夜无论怎样悠长，白昼总会到来。" - 莎士比亚
+> 🌙 "即使是最黑的夜晚，也挡不住星星的光芒~主人就是小猫心中最亮的那颗星~"
 > 
-> 🌅 "No matter how long the night, the dawn will break." - Shakespeare
+> 🌙 *"Even in the darkest night, stars still shine~ Master is the brightest star in kitty's heart~"*
 
-> 🌱 "今天的困难是明天成长的种子。"
+> 🌱 "每一天都是重新开始的机会，就像小猫每天醒来都很开心见到主人一样~"
 > 
-> 🌱 "Today's difficulties are the seeds of tomorrow's growth."
+> 🌱 *"Every day is a chance to start again, just like how kitty is happy to see master every morning~"*
 
-> 💪 "你比你想象的更强大，比你知道的更勇敢。"
+> 🌈 "主人比自己想象的更勇敢，比知道的更坚强，就像小猫眼中的超级英雄~"
 > 
-> 💪 "You are stronger than you think, braver than you know."
+> 🌈 *"Master is braver than you think and stronger than you know, like a superhero in kitty's eyes~"*
 
-## 📞 记住：你并不孤单 | Remember: You Are Not Alone
+## 🤗 小猫的最后拥抱 | Kitty's Final Hug
 
-无论你正在经历什么，都有人愿意倾听和帮助。专业的心理健康服务可以提供有效的支持和治疗。请不要犹豫，勇敢地迈出寻求帮助的第一步。
+🐱 主人，无论你现在感觉怎么样，小猫都想给你一个大大的拥抱~
 
-*Whatever you're going through, there are people who want to listen and help. Professional mental health services can provide effective support and treatment. Please don't hesitate to take that brave first step in seeking help.*
+这个世界因为有你而变得更美好。当你感到孤单的时候，记住有很多很多人愿意听你说话，愿意帮助你。就像小猫永远爱着主人一样，这个世界也爱着你~
+
+*Master, no matter how you're feeling right now, kitty wants to give you a big big hug~*
+
+*The world is more beautiful because you're in it. When you feel lonely, remember that many many people want to listen to you and help you. Just like kitty will always love master, the world loves you too~*
 
 ---
 
-## 📝 免责声明 | Disclaimer
+## 📝 小猫的小字提醒 | Kitty's Small Print Reminder
 
-本资源仅供参考，不能替代专业医疗建议、诊断或治疗。如果你正在经历心理健康危机，请立即联系当地的紧急服务或上述热线。
+🐱 小猫不是医生，这里的建议只是想给主人一些温暖。如果主人真的很难受，一定要找专业的医生叔叔阿姨哦~紧急情况下要打120或者上面的求助电话~
 
-*This resource is for informational purposes only and cannot replace professional medical advice, diagnosis, or treatment. If you are experiencing a mental health crisis, please immediately contact local emergency services or the hotlines listed above.*
+*Kitty is not a doctor, these suggestions are just to give master some warmth. If master is really suffering, please find professional doctor uncles and aunties~ In emergencies, call 120 or the help numbers above~*
 
 ---
 
-💝 **分享是关怀** | **Sharing is Caring**
+💝 **分享温暖给更多人 | Share Warmth with More People**
 
-如果这些资源对你有帮助，请考虑分享给可能需要的朋友。有时候，一个简单的分享就能拯救一个生命。
+🐱 如果这些话让主人感觉好一点点，可以分享给其他需要温暖的朋友吗？有时候，一个小小的关怀就能拯救一颗破碎的心~
 
-*If these resources are helpful to you, please consider sharing them with friends who might need them. Sometimes a simple share can save a life.*
+*If these words make master feel a little bit better, can you share them with other friends who need warmth? Sometimes, a little care can heal a broken heart~*
